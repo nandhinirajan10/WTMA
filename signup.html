@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN UP FORM</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="background.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+	<body style="back.css">
+
+    <div class="container">
+        <h1 class="text-center">SIGN UP FORM</h1>
+        <form id="signupForm">
+            <div class="form-group">
+                <label>First Name:</label>
+                <input type="text" id="firstName" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Last Name:</label>
+                <input type="text" id="lastName" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Date of Birth:</label>
+                <input type="date" id="dob" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Age:</label>
+                <input type="number" id="age" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label><br>
+                <input type="radio" name="gender" value="Male" required> Male
+                <input type="radio" name="gender" value="Female" required> Female
+            </div>
+            <div class="form-group">
+                <label>Phone Number:</label>
+                <input type="text" id="phone" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Address:</label>
+                <textarea id="address" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Signup</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            // Collect form data
+            let formData = {
+                firstName: document.getElementById("firstName").value,
+                lastName: document.getElementById("lastName").value,
+                email: document.getElementById("email").value,
+                dob: document.getElementById("dob").value,
+                age: document.getElementById("age").value,
+                gender: document.querySelector("input[name='gender']:checked").value,
+                phone: document.getElementById("phone").value,
+                address: document.getElementById("address").value
+            };
+
+            // Store data in localStorage
+            localStorage.setItem("userData", JSON.stringify(formData));
+
+            // Redirect to display page
+            window.location.href = "display.html";
+        });
+    </script>
+</body>
+</html>
